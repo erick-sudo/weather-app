@@ -1,3 +1,7 @@
+:root {
+  --fg : #000000
+}
+
 .App {
   
 }
@@ -16,4 +20,11 @@ html {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.navigation-bar {
+    border: solid 1px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--fg);
 }

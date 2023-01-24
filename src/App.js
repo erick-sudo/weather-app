@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route} from "react-router-dom"
 import './App.css';
-import Home from "./Home"
-import Current from "./Current"
-import Statistics from "./Statistics"
-import About from "./About"
-import Navigationbar from "./Navigationbar"
+import Home from "./components/Home"
+import Current from "./components/Current"
+import Statistics from "./components/Statistics"
+import About from "./components/About"
+import Navigationbar from "./components/Navigationbar"
 
 function App() {
   return (
