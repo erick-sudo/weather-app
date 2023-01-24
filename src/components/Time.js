@@ -1,12 +1,13 @@
 import React, { useState, useEffect} from "react";
 
-function Time({time}) {
+function Time({time : {localtime, epoch}}) {
 
-    const [ctime, setCtime] = useState(time)
+    const [ctime, setCtime] = useState(localtime)
 
     return (
         <div className="time">
-            {ctime}
+            <span>{ctime}</span>
+            <span>{epoch}</span>
         </div>
     )
 }
