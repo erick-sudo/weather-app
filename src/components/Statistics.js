@@ -10,11 +10,13 @@ function Statistics() {
         hour: []
     })
 
+    const [location, setLocation] = useState({})
+
     useEffect(() => {
         fetch("https://api.weatherapi.com/v1/forecast.json?key=9c2d8d365ef64a2998762134223112&q=Paris")
         .then(res => res.json())
         .then(data => {
-            // console.log((data.forecast.forecastday[0]))
+            setLocation(data.location)
             setStats(data.forecast.forecastday[0])
         })
     }, [])
@@ -22,17 +24,16 @@ function Statistics() {
 
     const {astro, date, day, hour} = stats
 
-    // console.log(Object.keys(hour[0]))
-
     const keys = ['temp_c', 'temp_f', 'wind_mph', 'wind_kph', 'wind_degree', 'pressure_mb', 'pressure_in', 'precip_mm', 'precip_in', 'humidity', 'cloud', 'feelslike_c', 'feelslike_f', 'windchill_c', 'windchill_f', 'heatindex_c', 'heatindex_f', 'dewpoint_c', 'dewpoint_f', 'vis_km', 'vis_miles', 'gust_mph', 'gust_kph', 'uv']
 
     return (
         <div className="center statisctics">
+            <h3 className="h3">{date}: {location.name}, {location.region}, {location.country}</h3>
             <h1 className="h1">24 Hour Stats</h1>
             <div className="hour">
                 {
-                    keys.map(k => {
-                        return <Hours hours={hour} aspect={k} />
+                    keys.map((k, index) => {
+                        return <Hours key={index} hours={hour} aspect={k} />
                     })
                 }
             </div>
@@ -70,7 +71,7 @@ function drawGraph(ctx, vals, L, CANVAS) {
 
 function drawLine(ctx, x1, y1, x2, y2) {
     ctx.beginPath();
-    ctx.strokeStyle = "maroon";
+    ctx.strokeStyle = "tomato";
     ctx.lineWidth = 3;
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
@@ -82,7 +83,7 @@ function drawLine(ctx, x1, y1, x2, y2) {
 
 function gridCanvas(canvas, color) {
     const ctx = canvas.getContext("2d");
-    for(let i=0;i<canvas.width;i+=10) {
+    for(let i=0;i<canvas.width;i+=20) {
       ctx.strokeStyle = color;
       ctx.beginPath();
       ctx.moveTo(i, 0);
@@ -90,7 +91,7 @@ function gridCanvas(canvas, color) {
       ctx.lineWidth = 0.6;
       ctx.stroke();
     }
-    for(let i=0;i<canvas.height;i+=10) {
+    for(let i=0;i<canvas.height;i+=20) {
       ctx.strokeStyle = color;
       ctx.beginPath();
       ctx.moveTo(0, i);

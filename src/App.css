@@ -330,6 +330,8 @@ td {
 canvas{
   margin: 0;
   display: block;
+
+  transform: scale(0.6);
 }
 
 .hours {
@@ -347,4 +349,30 @@ canvas{
 }
 h1 {
   text-align: center;
+}
+h3 {
+  text-align: center;
+}
+
+/* ---------------Home ------------------- */
+.background-gif {
+  position: absolute;
+}
+.background-gif > img {
+  width: 100%;
+}
+.content {
+  z-index: 3;
+  position: absolute;
+}
+.welcome-text {
+  text-align: left;
+}
+.left {
+  padding: 0.3em;
+  width: 80%;
+
+  background-clip: text;
+  background-image: linear-gradient(-45deg, var(--fgB) 10%, var(--fg) 90%);
+  color: transparent;
 }
