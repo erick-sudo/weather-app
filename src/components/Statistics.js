@@ -41,7 +41,7 @@ function Statistics() {
 }
 
 function Hours({hours, aspect}) {
-    const W = window.innerWidth*0.8, H = 100;
+    const W = window.innerWidth*0.8, H = aspect === 'wind_degree' ?  400 : 200 ;
     const canvasRef = React.useRef()
 
     useEffect(() => {
@@ -60,7 +60,7 @@ function Hours({hours, aspect}) {
 }
 
 function drawGraph(ctx, vals, L, CANVAS) {
-    gridCanvas(CANVAS, "blue")
+    gridCanvas(CANVAS, "rgb(14, 174, 238)")
     let p = {x: 0, y: 0}
     let interval = L / 24
     vals.forEach(val => {
@@ -70,8 +70,8 @@ function drawGraph(ctx, vals, L, CANVAS) {
 
 function drawLine(ctx, x1, y1, x2, y2) {
     ctx.beginPath();
-    ctx.strokeStyle = "orange";
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = "maroon";
+    ctx.lineWidth = 3;
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.stroke();
@@ -87,7 +87,7 @@ function gridCanvas(canvas, color) {
       ctx.beginPath();
       ctx.moveTo(i, 0);
       ctx.lineTo(i, canvas.width);
-      ctx.lineWidth = 0.5;
+      ctx.lineWidth = 0.6;
       ctx.stroke();
     }
     for(let i=0;i<canvas.height;i+=10) {
