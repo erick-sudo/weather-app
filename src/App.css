@@ -1,5 +1,10 @@
 :root {
-  --fg : #000000
+  --fg : rgb(14, 174, 238);
+  --fgB : rgb(4, 145, 39);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .App {
@@ -22,9 +27,35 @@ html {
   }
 }
 
-.navigation-bar {
-    border: solid 1px;
+.nav-links {
     display: flex;
     justify-content: center;
-    background-color: var(--fg);
+    align-items: center;
+    flex-grow: 2;
+}
+
+.navigation-bar {
+  display: flex;
+  border-bottom: solid 1px var(--fg);
+  padding: 0.5em 0em;
+}
+
+.theme-btn {
+  border: none;
+  background-color: transparent;
+  font-size: 1.5em;
+}
+.login-state-btn {
+  border: solid 2px orangered;
+}
+.login-state-btn {
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 1.1em;
+  font-weight: bolder;
+  right: 0;
+  padding: 0.1em 0.5em;
+  color: var(--fgB);
+  margin: 5px;
 }
