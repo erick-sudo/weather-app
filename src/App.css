@@ -1,7 +1,7 @@
 :root {
   --fg : rgb(14, 174, 238);
   --fgB : rgb(4, 145, 39);
-  --bg: #0d0f14;
+  --bg: rgb(3, 14, 14); /* #0d0f14; */
   --header: #fff;
   --link: #61dafb;
   --bgLinear: #0d9cc425;
@@ -20,7 +20,7 @@
 }
 
 html {
-  background-color: #282c34;
+  background-color: var(--bg);
   color: white;
 }
 
@@ -175,16 +175,175 @@ html {
 
 /* ---------------------Main Page---------------------------- */
 .center {
-  border: solid 1px red;
   min-height: 700px;
 }
 
 /* -------------------Current Page--------------------------- */
-.time {
-  border: solid 1px;
+.current{
   display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.time {
+  border-bottom: solid 2px var(--fg);
+  display: flex;
+  margin: 1em;
+  font-weight: bolder;
+  font-size: 2em;
 }
 .time > span {
-  border: solid 1px yellow;
   width: 50%;
+  text-align: center;
+}
+.location {
+  padding: 1em;
+  border:  solid 1px var(--fgB);
+  margin-top: 1em;
+}
+.current-weather {
+  padding: 1em 5em;
+  
+}
+.current-weather > div {
+
+}
+.row{
+  display: flex;
+  align-items: stretch;
+}
+.row > div {
+  width: 50%;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.row > div > span {
+  padding: 0.5em 2em;
+}
+.cellsl {
+  border-bottom: 1px solid var(--fg);
+  border-right: 1px solid var(--fg);
+}
+.cellsr {
+  border-bottom: 1px solid var(--fg);
+}
+.day-night {
+  width: 100%;
+  text-align: center;
+  height: 100%;
+  font-size: 5em;
+}
+.weather-aspects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+table {
+  width: 100%;
+}
+.weather-aspects > div {
+  width: 40%;
+}
+td {
+  text-align: center;
+  padding: 1.5em;
+  font-weight: bolder;
+  font-size: 1.2em;
+}
+
+.wind {
+  
+}
+.weather-aspects label {
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 1.8em;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(45deg , rgb(196, 60, 82),rgb(0, 238, 255), rgb(6, 102, 119));
+}
+.pressure {
+
+}
+.precipitation {
+  
+}
+.other-aspects {
+  width: 90% !important;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.other-aspects > div {
+  width: 30%;
+}
+.humidity, .cloud, .gust {
+  background: no-repeat center center;
+  background-size: cover;
+  color: black;
+}
+
+.humidity {
+  background-image: url("https://cdn.pixabay.com/photo/2015/07/07/15/07/heat-834468_960_720.jpg");
+}
+.cloud {
+  background-image: url("https://cdn.pixabay.com/photo/2011/06/21/14/13/cloud-8075_960_720.jpg");
+}
+
+.gust {
+  background-image: url("https://cdn.pixabay.com/photo/2018/02/13/21/58/thunderstorm-3151713__340.jpg")
+}
+
+/* --------------------Query form ----------------------- */
+.query-form {
+  margin: 0.5em;
+  display: flex;
+  padding: 0.5em;
+  background-color: rgb(8, 8, 32);
+  border-radius: 5px;
+}
+.query-form > input {
+  background-color: transparent;
+  padding: 0.3em;
+  border: solid 1px var(--fg);
+  color: white;
+  margin-right: 1.3em;
+  outline: none;
+}
+.query-form > label {
+  font-weight: bolder;
+}
+.query-form > button {
+  background-color: var(--fg);
+  border: none;
+  padding: 0.8em 1.3em;
+  font-weight: bolder;
+}
+
+canvas{
+  margin: 0;
+  display: block;
+}
+
+.hours {
+  width: max-content;
+  margin: 0 auto;
+  border: solid 1px var(--fg);
+  border-bottom: none;
+  padding: 10px;
+}
+
+.keys {
+  font-weight: bolder;
+  color: orangered;
+}
+h1 {
+  text-align: center;
 }
