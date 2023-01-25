@@ -1,6 +1,14 @@
 :root {
   --fg : rgb(14, 174, 238);
   --fgB : rgb(4, 145, 39);
+  --bg: #0d0f14;
+  --header: #fff;
+  --link: #61dafb;
+  --bgLinear: #0d9cc425;
+  --text: hsla(0, 0%, 100%, 0.88);
+  --wht: white;
+  --linkGrey: rgb(155, 153, 153);
+  --hover: rgb(224, 61, 88); /*e03d58*/
 }
 
 * {
@@ -58,4 +66,125 @@ html {
   padding: 0.1em 0.5em;
   color: var(--fgB);
   margin: 5px;
+}
+
+/* ------------------Footer------------------------------- */
+
+.footer-wrapper{
+  border-top: solid 1px var(--fg);
+  padding: 1em;
+  background-image: linear-gradient(180deg, var(--bgLinear) 1%,transparent);
+}
+
+.footer-wrapper h4 {
+  font-size: 1.2em;
+  text-align: center;
+}
+.contacts{
+  width: max-content;
+}
+.social-icons {
+  max-width: 30px;
+  min-width: 30px;
+  display: block;
+
+  transition: 1s;
+}
+.sign{
+  font-weight: bolder;
+  font-size: 1.2em;
+  padding: 1em;
+  text-align: center;
+}
+.social-icons:hover{
+  transform: scale(1.2);
+}
+.direct a {
+  color: var(--linkGrey);
+  text-align: right;
+  padding: 1.0em;
+  width: max-content;
+  text-decoration: none;
+  font-weight: bolder;
+
+  transition: 1.5s;
+}
+
+.direct a:hover {
+  color: var(--hover);
+  transform: scale(0.95);
+}
+.direct a img {
+  vertical-align: middle;
+  width: 20px;
+  padding-left: 0.5em;
+}
+
+@media (orientation: landscape){
+  .footer{
+    display: flex;
+  }
+  .footer > div {
+    width: 50%;
+    padding-top: 1em;
+  }
+  .tech, .social-media{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .direct{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  .contacts{
+    margin: 0.3em;
+  }
+}
+
+@media (orientation: portrait){
+  .footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer > div {
+    width: 100%;
+  }
+  .tech, .social-media{
+    padding: 1em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .contacts{
+    margin: 0.3em;
+  }
+
+  .direct{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+/* ---------------------Main Page---------------------------- */
+.center {
+  border: solid 1px red;
+  min-height: 700px;
+}
+
+/* -------------------Current Page--------------------------- */
+.time {
+  border: solid 1px;
+  display: flex;
+}
+.time > span {
+  border: solid 1px yellow;
+  width: 50%;
 }
