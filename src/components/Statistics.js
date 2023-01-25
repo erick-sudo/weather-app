@@ -20,7 +20,7 @@ function Statistics() {
     }, [])
 
 
-    const {astro, date, date_epocj, day, hour} = stats
+    const {astro, date, day, hour} = stats
 
     // console.log(Object.keys(hour[0]))
 
