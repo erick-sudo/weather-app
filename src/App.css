@@ -357,13 +357,13 @@ h3 {
 /* ---------------Home ------------------- */
 .background-gif {
   position: absolute;
+  z-index: 2;
 }
 .background-gif > img {
   width: 100%;
 }
 .content {
   z-index: 3;
-  position: absolute;
 }
 .welcome-text {
   text-align: left;

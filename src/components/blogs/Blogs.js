@@ -13,7 +13,7 @@ function Blogs({blogs, setBlogs, postComment}) {
 
     return (
         <div className="blogs-wrapper">
-            <h2>Blogs</h2>
+            <h3>Updates</h3>
             <PostForm send={telegram} updateBlogs={updateBlogs} />
             <div className="blogs">
                 {
@@ -88,7 +88,7 @@ function Post({blogpost: {id, author, date, image, description, comments, title}
         <div className="posts">
             <h1 className="post-heading">{title}</h1>
             <span className="time">{date}</span>
-            <h3 className="author">#{author}</h3>
+            <h4 className="author">#{author}</h4>
             <div className="post-content">
                 <Pic url={image} />
                 <p className="about-post">{description}</p>
@@ -117,7 +117,7 @@ function Pic({url}) {
     );
 }
 
-function Comment({comment: {name, email, body}}) {
+function Comment({comment: {name, email, body, likes}}) {
     return (
             <fieldset className="comment">
                 <legend className="comment-legend">
@@ -140,7 +140,8 @@ function CommentForm({send, postId, postComment}) {
                 const newComment = {
                     name: event.target.email.value.slice(0,5)+"...",
                     email: event.target.email.value,
-                    body: event.target.body.value
+                    body: event.target.body.value,
+                    likes: 0
                 }
 
                 postComment(postId, newComment)
