@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-function Statistics() {
+function Statistics({pos}) {
+
+    const {lat, lon} = pos
 
     const [stats, setStats] = useState({
         astro: {},
@@ -13,7 +15,7 @@ function Statistics() {
     const [location, setLocation] = useState({})
 
     useEffect(() => {
-        fetch("https://api.weatherapi.com/v1/forecast.json?key=9c2d8d365ef64a2998762134223112&q=Paris")
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=9c2d8d365ef64a2998762134223112&q=${lat+","+lon}`)
         .then(res => res.json())
         .then(data => {
             setLocation(data.location)

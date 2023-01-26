@@ -5,7 +5,7 @@ import Blogs from "../components/blogs/Blogs"
 
 function Home({pos}) {
 
-    // const {lat, lon} = pos
+    const {lat, lon} = pos
     const [blogs, setBlogs] = useState([]);
 
   function showBlogForm() {
@@ -102,7 +102,7 @@ function Home({pos}) {
             <img src={rocket} alt="rocket-gif"/>
         </div> */}
         <div className="current-location">
-          <h1>{pos}</h1>
+          <h1>{lat +" "+lon}</h1>
         </div>
         <div className="content">
             <div className="left">

@@ -5,11 +5,12 @@ import Time from "./Time"
 import QueryForm from "./QueryForm";
 
 const api_key = "9c2d8d365ef64a2998762134223112"
-const coords = "q=48.8567,2.3508"
+// const coords = "q=48.8567,2.3508"
 
-function Current() {
+function Current({pos}) {
+    const {lat, lon} = pos
     const [curr, setCurr] = useState(defaultData)
-    const [coordinates, setCoordinates] = useState({lat: 48.8567, lon: 2.3508})
+    const [coordinates, setCoordinates] = useState({lat: lat, lon: lon})
 
     function resetCoordinates(coord) {
         setCoordinates(coord)

@@ -29,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home pos={currentLocation} />} />
         <Route path="/current" element={<Current pos={currentLocation} />} />
-        <Route path="/statistics" element={<Statistics />} />
+        <Route path="/statistics" element={<Statistics pos={currentLocation} />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />

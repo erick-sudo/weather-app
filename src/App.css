@@ -12,10 +12,10 @@
 }
 .dark {
   background-color: var(--bg);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 .light {
-  background-color: white;
+  background-color: rgb(189, 236, 238);
   color: black;
 }
 
@@ -198,9 +198,7 @@ html {
 
 }
 .time {
-  border-bottom: solid 2px var(--fg);
   display: flex;
-  margin: 1em;
   font-weight: bolder;
   font-size: 2em;
 }
@@ -210,15 +208,16 @@ html {
 }
 .location {
   padding: 1em;
-  border:  solid 1px var(--fgB);
+  box-shadow: 0.04em 0.04em 0.4em var(--fg);
   margin-top: 1em;
+  width: 70%;
+
+  display: flex;
+  flex-direction: column;
 }
 .current-weather {
   padding: 1em 5em;
   
-}
-.current-weather > div {
-
 }
 .row{
   display: flex;
@@ -267,23 +266,30 @@ td {
 }
 
 .wind {
-  
+  background: url("https://cdn.pixabay.com/photo/2016/09/26/17/11/wind-sock-1696481__340.jpg") no-repeat center center;
 }
 .weather-aspects label {
   font-weight: bold;
   font-size: 1.5em;
   padding: 1.8em;
 
+  text-shadow: 0.04em 0.04em 0.04em rgba(0, 0, 0, 0.63);
+
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   background-image: linear-gradient(45deg , rgb(196, 60, 82),rgb(0, 238, 255), rgb(6, 102, 119));
 }
+.pressure, .precipitation, .wind {
+  width: 70%;
+  background-size: cover;
+  margin: 0.5em;
+}
 .pressure {
-
+  background: url("https://cdn.pixabay.com/photo/2014/10/25/18/45/oxygen-502887__340.jpg") no-repeat center center;
 }
 .precipitation {
-  
+  background: url("https://cdn.pixabay.com/photo/2020/02/23/12/02/lake-4873148__340.jpg") no-repeat center center;
 }
 .other-aspects {
   width: 90% !important;
@@ -291,7 +297,7 @@ td {
   justify-content: space-evenly;
   align-items: stretch;
   text-align: center;
-  margin-bottom: 2em;
+  margin: 2em;
 }
 .other-aspects > div {
   width: 30%;
@@ -331,6 +337,7 @@ td {
 }
 .query-form > label {
   font-weight: bolder;
+  color: white;
 }
 .query-form > button {
   background-color: var(--fg);
