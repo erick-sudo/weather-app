@@ -141,7 +141,7 @@ function CommentForm({send, postId, postComment}) {
                     name: event.target.email.value.slice(0,5)+"...",
                     email: event.target.email.value,
                     body: event.target.body.value,
-                    likes: 0
+                    likes: 0,
                 }
 
                 postComment(postId, newComment)
