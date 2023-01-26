@@ -7,9 +7,9 @@ function QueryForm({resetCoordinates}) {
             resetCoordinates({lat: event.target.lat.value, lon: event.target.lon.value});
         }}>
             <label>Latitude</label>
-            <input type="number" name="lat" />
+            <input type="text" name="lat" />
             <label>Longitude</label>
-            <input type="number" name="lon" />
+            <input type="text" name="lon" />
             <button type="submit">Submit</button>
         </form>
     )

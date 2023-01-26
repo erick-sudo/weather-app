@@ -1,6 +1,6 @@
 import React from "react";
 
-function Login({credentials, logUser}) {
+function LoginButton({credentials, logUser}) {
     return (
         <button onClick={() => {
             logUser()
@@ -10,4 +10,10 @@ function Login({credentials, logUser}) {
     )
 }
 
-export default Login;
+function LoginForm() {
+    return {
+        
+    }
+}
+
+export default LoginButton;

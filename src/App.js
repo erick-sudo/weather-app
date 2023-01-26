@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Routes, Route} from "react-router-dom"
 import './App.css';
 import Home from "./components/Home"
@@ -9,17 +9,31 @@ import Navigationbar from "./components/Navigationbar"
 import Footer from "./components/Footer";
 
 function App() {
+
+  const [theme, setTheme] = useState("dark");
+  const [currentLocation, setCurrentLocation] = useState({lat: -1, lon: 37});
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setCurrentLocation({lat: position.coords.latitude, lon: position.coords.longitude})
+    }) 
+      //localStorage.setItem("currentLocation", JSON.stringify(currentLocation))
+  }, [])
+
+  function toggleTheme(th) {
+    setTheme(th)
+  }
   return (
-    <>
-      <Navigationbar />
+    <div className={theme}>
+      <Navigationbar theme={theme} toggleTheme={toggleTheme} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/current" element={<Current />} />
+        <Route path="/" element={<Home pos={currentLocation} />} />
+        <Route path="/current" element={<Current pos={currentLocation} />} />
         <Route path="/statistics" element={<Statistics />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

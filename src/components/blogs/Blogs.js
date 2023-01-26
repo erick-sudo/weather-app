@@ -5,7 +5,12 @@ import arrowLeft from "../../assets/iconsHv/x-mark.png"
 import arrowup from "../../assets/iconsFg/arrow-up.png"
 import arrowdown from "../../assets/iconsFg/arrow-down.png"
 
-function Blogs({blogs, setBlogs, postComment}) {
+import aigenerated from "../../assets/profilepics/ai-generated.jpg"
+import goddess from "../../assets/profilepics/goddess.jpg"
+import skeleton from "../../assets/profilepics/skeleton.svg"
+import teacher from "../../assets/profilepics/teacher.svg"
+
+function Blogs({blogs, setBlogs, postComment, addLike}) {
 
     function updateBlogs(blog) {
         setBlogs([blog, ...blogs])
@@ -18,7 +23,7 @@ function Blogs({blogs, setBlogs, postComment}) {
             <div className="blogs">
                 {
                     blogs.map(blog => {
-                      return <Post key={blog.id} postComment={postComment} blogpost={blog}/>  
+                      return <Post key={blog.id} postComment={postComment} addLike={addLike} blogpost={blog}/>  
                     })
                 }
             </div>
@@ -80,31 +85,36 @@ function PostForm({send, updateBlogs}) {
 }
 
 
-function Post({blogpost: {id, author, date, image, description, comments, title}, postComment}) {
+function Post({blogpost: {id, author, date, image, description, comments, title}, postComment, addLike}) {
 
     const [collapse, setcollapse] = useState(true);
 
     return (
         <div className="posts">
+            {collapse ? null : <>
             <h1 className="post-heading">{title}</h1>
             <span className="time">{date}</span>
             <h4 className="author">#{author}</h4>
+            </>}
             <div className="post-content">
                 <Pic url={image} />
                 <p className="about-post">{description}</p>
-            </div>
-            <section className="comments">
                 <div className="expand-comments" onClick={() => {
                     setcollapse(!collapse)
                 }}><img src={ collapse ? arrowup : arrowdown} alt="collapse comments"/></div>
+            </div>
+            {collapse ? null : <>
+            <section className="comments">
+                
                 <h5 className="h5" >Comments</h5>
                 {
-                    collapse ? null : comments.map((comment) => {
-                        return <Comment key={comment.id} comment={comment} />
+                    comments.map((comment) => {
+                        return <Comment key={comment.id} comment={comment} blogId={id} addLike={addLike} />
                     })
                 }
             </section>
             <CommentForm postId={id} send={telegram} postComment={postComment}/>
+            </>}
         </div>
     );
 }
@@ -117,17 +127,27 @@ function Pic({url}) {
     );
 }
 
-function Comment({comment: {name, email, body, likes}}) {
+function Comment({comment, blogId, addLike}) {
+    const {id, name, email, body, likes} = comment;
+    const profilepics = [aigenerated, goddess, skeleton, teacher]
+
     return (
             <fieldset className="comment">
                 <legend className="comment-legend">
-                    <img className="comment-avatar" src="https://cdn.pixabay.com/photo/2018/08/26/16/23/atm-3632623_960_720.png" alt={email} />
+                    <img className="comment-avatar" src={profilepics[getRandomInteger()]} alt={email} />
                     <span className="email-commment">{name}</span>
                 </legend>
                 <div className="comment-body">{body}</div>
                 <div className="comment-email"><a href={`mailto:${email}`}>{email}</a></div>
+                <button onClick={() => {
+                    addLike(blogId, id)
+                }} className="likes">{likes} Likes 👍 </button>
             </fieldset>
     );
+}
+
+function getRandomInteger() {
+    return Math.floor(Math.random() * 10)%4;
 }
 
 function CommentForm({send, postId, postComment}) {

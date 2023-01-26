@@ -10,6 +10,14 @@
   --linkGrey: rgb(155, 153, 153);
   --hover: rgb(224, 61, 88); /*e03d58*/
 }
+.dark {
+  background-color: var(--bg);
+  color: white;
+}
+.light {
+  background-color: white;
+  color: black;
+}
 
 * {
   box-sizing: border-box;
@@ -20,8 +28,7 @@
 }
 
 html {
-  background-color: var(--bg);
-  color: white;
+  
 }
 
 .App-logo {
@@ -46,6 +53,11 @@ html {
   display: flex;
   border-bottom: solid 1px var(--fg);
   padding: 0.5em 0em;
+
+  overflow-x: scroll;
+}
+.navigation-bar::-webkit-scrollbar {
+  height: 0px;
 }
 
 .theme-btn {

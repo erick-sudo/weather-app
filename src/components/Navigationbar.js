@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
-import Login from "./Login";
+import LoginButton from "./Login";
 
 
 
@@ -16,10 +16,9 @@ const linkStyles = {
     borderRadius: "5px",
   };
 
-function Navigationbar() {
+function Navigationbar({theme, toggleTheme}) {
 
     const [credentials, setCredentials] = useState("")
-    const [theme, setTheme] = useState("dark")
 
     function logUser() {
         setCredentials(credentials ? null : "Erick")
@@ -28,15 +27,15 @@ function Navigationbar() {
     return (
         <div className={`navigation-bar`}>
             <button onClick={() => {
-                setTheme(theme === "dark"? "light" : "dark")
-            }} className="theme-btn">{theme === "dark" ? "🌒" : "🌞"}</button>
+                toggleTheme(theme === "dark"? "light" : "dark")
+            }} className="theme-btn">{theme === "light" ? "🌒" : "🌞"}</button>
             <div className="nav-links">
                 <NavLink to="/" style={linkStyles} >Home</NavLink>
                 <NavLink to="/current" style={linkStyles}>Current</NavLink>
                 <NavLink to="/statistics" style={linkStyles}>Statistics</NavLink>
                 <NavLink to="/about" style={linkStyles}>About</NavLink>
             </div>
-            <Login credentials={credentials} logUser={logUser} />
+            <LoginButton credentials={credentials} logUser={logUser} />
         </div>
     )
 }
