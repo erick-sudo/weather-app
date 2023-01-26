@@ -101,8 +101,8 @@ function Home({pos}) {
         {/* <div className="background-gif">
             <img src={rocket} alt="rocket-gif"/>
         </div> */}
+        <div className="current-location-stats"></div>
         <div className="current-location">
-          <h1>{lat +" "+lon}</h1>
         </div>
         <div className="content">
             <div className="left">

@@ -31,6 +31,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: center;
   }
   .posts {
     width: 450px;

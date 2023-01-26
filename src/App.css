@@ -395,3 +395,23 @@ h3 {
   background-image: linear-gradient(-45deg, var(--fgB) 10%, var(--fg) 90%);
   color: transparent;
 }
+
+.error {
+  color: rgba(255, 0, 0, 1);
+  font-size: 3em;
+  font-variant: small-caps;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-shadow: 0.04em 0.04em 0.04em rgba(0, 255, 0);
+}
+.error > img {
+  width: 60%;
+}
+
+.current-location-stats {
+  min-height: 500px;
+  background: url("./assets/rocket-loop.gif")  center center;
+}
