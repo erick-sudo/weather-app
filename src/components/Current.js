@@ -17,7 +17,7 @@ function Current({pos}) {
     }
 
     useEffect(() => {
-        fetch(`http://api.weatherapi.com/v1/current.json?key=${api_key}&q=${coordinates.lat},${coordinates.lon}`)
+        fetch(`https://api.weatherapi.com/v1/current.json?key=${api_key}&q=${coordinates.lat},${coordinates.lon}`)
         .then(res => res.json())
         .then(data => setCurr(data))
     }, [ coordinates ])

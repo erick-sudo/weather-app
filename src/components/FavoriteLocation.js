@@ -9,7 +9,7 @@ function FavoriteLocation({curr, pos}) {
     const { location, current } = forecast
 
     useEffect(() => {
-        fetch(`http://api.weatherapi.com/v1/forecast.json?key=${api_key}&q=${pos.lat},${pos.lon}&days=7`)
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${api_key}&q=${pos.lat},${pos.lon}&days=7`)
         .then(response => response.json())
         .then(data => {
             setForecast(data)
