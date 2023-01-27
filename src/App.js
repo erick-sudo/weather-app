@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Routes, Route} from "react-router-dom"
 import './App.css';
 import Home from "./components/Home"
-import Current from "./components/Statistics"
+import Current from "./components/Current"
 import Statistics from "./components/Statistics"
 import About from "./components/About"
 import Navigationbar from "./components/Navigationbar"
@@ -41,7 +41,7 @@ function App() {
       <Navigationbar theme={theme} toggleTheme={toggleTheme} />
       <Routes>
         <Route path="/" element={<Home pos={currentLocation} curr={defaultData} />} />
-        <Route path="/current" element={<Current pos={currentLocation} />} />
+        <Route exact path="/current" element={<Current pos={currentLocation} />} />
         <Route exact path="/statistics" element={<Statistics pos={currentLocation} />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<PageNotFound />} />
