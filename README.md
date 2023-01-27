@@ -1,16 +1,11 @@
 # Weather Forecast and Updates
 *****
-### Author : Name Date
-****
-## Project Description
-
+### Author : Erick 27th January 2023
+*****
+## P*roject Description
+This project communicates with the [Weather Forecast](https://www.weatherapi.com/) API to communicate the latest weather conditons.
+It also provides forecast information of a whole day with graphical visualizations of different weather aspects throught out the day.
 ******
-
-## SCREENSHOTS
-- link 1
-- link 2
-
-********
 ## SetUp Instruction
 ### Requirements
 * [Lang](lang Url)
