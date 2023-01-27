@@ -90,6 +90,7 @@
 }
 .pics{
   border-radius: 5px;
+  position: relative;
 }
 .comments {
   background-image: linear-gradient(180deg, var(--bgLinearblogs) 1%,transparent);
@@ -340,4 +341,25 @@ input, textarea{
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   font-weight: bolder;
+}
+
+.deleteblog {
+  background-color: red;
+  border: none;
+  position: absolute;
+  font-weight: bolder;
+  cursor: pointer;
+  right: 0;
+}
+.updateblog {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border: none;
+  font-weight: bolder;
+  background-color: rgb(55, 148, 11);
+}
+.updateblog , .deleteblog {
+  padding: 5px 10px;
+  border-radius: 10px;
 }

@@ -10,20 +10,60 @@ import goddess from "../../assets/profilepics/goddess.jpg"
 import skeleton from "../../assets/profilepics/skeleton.svg"
 import teacher from "../../assets/profilepics/teacher.svg"
 
-function Blogs({blogs, setBlogs, postComment, addLike}) {
+function Blogs({blogs, deleteBlog, setBlogs, postComment, addLike, showBlogForm}) {
 
     function updateBlogs(blog) {
+        
         setBlogs([blog, ...blogs])
+        setBlogData([blog, ...blogs])
+        ({
+            title: "",
+            firstname: "",
+            lastname: "",
+            email: "",
+            image: "",
+            bloginfo: ""
+        })
+    }
+
+    const [blogData, setBlogData] = useState({
+        title: "",
+        firstname: "",
+        lastname: "",
+        email: "",
+        image: "",
+        bloginfo: ""
+    })
+
+    const [idForUpdate, setIdForUpdate] = useState(0)
+
+    function updateBlog(id) {
+        setIdForUpdate(id)
+
+        const dataToUpdate = blogs.find(blog => blog.id === id)
+        
+        setBlogData({
+            title: dataToUpdate.title,
+            firstname: dataToUpdate.firstname,
+            lastname: dataToUpdate.lastname,
+            email: dataToUpdate.email,
+            image: dataToUpdate.image,
+            bloginfo: dataToUpdate.bloginfo,
+        })
+
+        showBlogForm()
+
+        //fetch(`https://localhost:8001/blogs/${id}`)
     }
 
     return (
         <div className="blogs-wrapper">
             <h3>Updates</h3>
-            <PostForm send={telegram} updateBlogs={updateBlogs} />
+            <PostForm send={telegram} blogData={blogData} setBlogData={setBlogData} updateBlogs={updateBlogs} />
             <div className="blogs">
                 {
                     blogs.map(blog => {
-                      return <Post key={blog.id} postComment={postComment} addLike={addLike} blogpost={blog}/>  
+                      return <Post key={blog.id} setIdForUpdate={updateBlog} deleteBlog={deleteBlog} postComment={postComment} addLike={addLike} blogpost={blog}/>  
                     })
                 }
             </div>
@@ -31,13 +71,19 @@ function Blogs({blogs, setBlogs, postComment, addLike}) {
     );
 }
 
-function PostForm({send, updateBlogs}) {
+function PostForm({send, blogData, updateBlogs, setBlogData}) {
+    const {title, firstname, lastname, email, image, bloginfo} = blogData
     function hideBlogForm() {
         const postform = document.querySelector(".post-form")
         postform.classList.add("zoom-in")
         postform.classList.remove("zoom-out")
         postform.style.display = "none"
     }
+
+    function handleUpdate(e) {
+        setBlogData({...blogData,[e.target.name] : e.target.value})
+    }
+
 
     return (
         <div className="post-form">
@@ -56,7 +102,7 @@ function PostForm({send, updateBlogs}) {
                     comments: []
                 }
 
-                fetch("https://cire-portfolio.herokuapp.com/blogs",{
+                fetch("http://localhost:8001/blogs",{
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -72,12 +118,12 @@ function PostForm({send, updateBlogs}) {
                 event.target.reset()
                 hideBlogForm()
             }}>
-                <input name="title" type="text" placeholder="Title" required />
-                <input name="firstname" type="text" placeholder="Firstname" required/>
-                <input name="lastname" type="text" placeholder="Lastname" required/>
-                <input name="email" type="text" required  placeholder="Email"/>
-                <input name="image" type="url" placeholder="Image url"/>
-                <textarea className="blog-info" name="bloginfo" placeholder="About" required></textarea>
+                <input value={title} onChange={handleUpdate} name="title" type="text" placeholder="Title" required />
+                <input value={firstname} onChange={handleUpdate} name="firstname" type="text" placeholder="Firstname" required/>
+                <input value={lastname} onChange={handleUpdate} name="lastname" type="text" placeholder="Lastname" required/>
+                <input value={email} onChange={handleUpdate} name="email" type="text" required  placeholder="Email"/>
+                <input value={image} onChange={handleUpdate} name="image" type="url" placeholder="Image url"/>
+                <textarea value={bloginfo} onChange={handleUpdate} className="blog-info" name="bloginfo" placeholder="About" required></textarea>
                 <button className="post-btn"><img src={send} alt="post" /></button>
             </form>
         </div>
@@ -85,7 +131,7 @@ function PostForm({send, updateBlogs}) {
 }
 
 
-function Post({blogpost: {id, author, date, image, description, comments, title}, postComment, addLike}) {
+function Post({blogpost: {id, author, date, image, description, comments, title}, postComment, addLike, deleteBlog, setIdForUpdate}) {
 
     const [collapse, setcollapse] = useState(true);
 
@@ -97,7 +143,7 @@ function Post({blogpost: {id, author, date, image, description, comments, title}
             <h4 className="author">#{author}</h4>
             </>}
             <div className="post-content">
-                <Pic url={image} />
+                <Pic url={image} blogid={id} deleteBlog={deleteBlog} setIdForUpdate={setIdForUpdate} />
                 <p className="about-post">{description}</p>
                 <div className="expand-comments" onClick={() => {
                     setcollapse(!collapse)
@@ -119,10 +165,16 @@ function Post({blogpost: {id, author, date, image, description, comments, title}
     );
 }
 
-function Pic({url}) {
+function Pic({url, blogid, deleteBlog, setIdForUpdate}) {
     return (
         <div className="pics">
+            <button className="deleteblog" onClick={() => {
+                deleteBlog(blogid);
+            }}>Delete</button>
             <img className="pictures" src={url} alt="post-pic" />
+            {/* <button className="updateblog" onClick={() => {
+                setIdForUpdate(blogid);
+            }}>Update Blog</button> */}
         </div>
     );
 }
@@ -151,6 +203,7 @@ function getRandomInteger() {
 }
 
 function CommentForm({send, postId, postComment}) {
+
     return (
         <div className="comment-form">
             <div className="message-icon"><img src="https://cdn.pixabay.com/photo/2017/03/17/06/47/email-2151046_960_720.png"  alt="message"/></div>

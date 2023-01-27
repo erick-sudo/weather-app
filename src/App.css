@@ -461,3 +461,28 @@ h3 {
   margin: 0;
   padding: 0.2em;
 }
+
+.about {
+  padding: 1em 10%;
+}
+
+.about > p {
+  font-size: 2em;
+}
+
+.about > img {
+  width: 400px;
+}
+
+.pics {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.final-quote {
+  font-size: 3em;
+  color: transparent;;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(45deg, var(--fg), var(--fgB) , orangered);
+}

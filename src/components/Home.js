@@ -13,6 +13,18 @@ function Home({pos, curr}) {
     postform.style.display = "block"
   }
 
+  function updateBlog(id, update) {
+
+  }
+
+  function deleteBlog(id) {
+    fetch(`http://localhost:8001/blogs/${id}`,{
+      method: "DELETE"
+    })
+
+    setBlogs(blogs.filter(blog => blog.id !== id))
+  }
+
   function addLike(blogId, commentId) {
     //
     const newBlog = blogs.find(blog => blog.id === blogId)
@@ -35,7 +47,7 @@ function Home({pos, curr}) {
 
         newBlog.comments = prevComments;
 
-        fetch(`https://cire-portfolio.herokuapp.com/blogs/${blogId}`, {
+        fetch(`http://localhost:8001/blogs/${blogId}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -65,7 +77,7 @@ function Home({pos, curr}) {
       comment.id = newBlog.comments.length+1
       newBlog.comments.unshift(comment)
       
-      fetch(`https://cire-portfolio.herokuapp.com/blogs/${blogId}`, {
+      fetch(`http://localhost:8001/blogs/${blogId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +100,7 @@ function Home({pos, curr}) {
   }
 
   useEffect(() => {
-    fetch('https://cire-portfolio.herokuapp.com/blogs')
+    fetch('http://localhost:8001/blogs')
     .then(response => response.json())
     .then(data => setBlogs(data.reverse()))
     }, [])
@@ -107,7 +119,7 @@ function Home({pos, curr}) {
             </div>
             <div className="weather-updates">
                 <div className="blog" onClick={showBlogForm}>POST 📯</div>
-                <Blogs blogs={blogs} setBlogs={setBlogs} postComment={postComment} addLike={addLike}/>
+                <Blogs blogs={blogs} showBlogForm={showBlogForm} deleteBlog={deleteBlog} setBlogs={setBlogs} postComment={postComment} addLike={addLike}/>
             </div>
         </div>
     </div>
