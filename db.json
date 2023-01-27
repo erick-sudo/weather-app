@@ -16,8 +16,7 @@
           "id": 1
         }
       ],
-      "id": 1,
-      "likes": 3
+      "id": 1
     },
     {
       "title": "Drought",
@@ -35,8 +34,7 @@
           "id": 1
         }
       ],
-      "id": 2,
-      "likes": 5
+      "id": 2
     },
     {
       "title": "rtyui",
@@ -59,13 +57,26 @@
         {
           "name": "...",
           "email": "",
+          "body": "Button",
+          "likes": 7,
+          "id": 3
+        },
+        {
+          "name": "...",
+          "email": "",
+          "body": "sdfghjk",
+          "likes": 6,
+          "id": 2
+        },
+        {
+          "name": "...",
+          "email": "",
           "body": "Perfect",
-          "likes": 12,
+          "likes": 17,
           "id": 1
         }
       ],
-      "id": 4,
-      "likes": 11
+      "id": 4
     }
   ]
 }

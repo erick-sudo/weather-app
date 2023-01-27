@@ -2,7 +2,7 @@
 *****
 ### Author : Erick 27th January 2023
 *****
-## P*roject Description
+## Project Description
 This project communicates with the [Weather Forecast](https://www.weatherapi.com/) API to communicate the latest weather conditons.
 It also provides forecast information of a whole day with graphical visualizations of different weather aspects throught out the day.
 ******
