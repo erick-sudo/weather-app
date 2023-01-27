@@ -21,10 +21,10 @@ function Statistics({pos}) {
             setLocation(data.location)
             setStats(data.forecast.forecastday[0])
         })
-    }, [])
+    }, [lat, lon])
 
 
-    const {astro, date, day, hour} = stats
+    const { date, hour} = stats
 
     const keys = ['temp_c', 'temp_f', 'wind_mph', 'wind_kph', 'wind_degree', 'pressure_mb', 'pressure_in', 'precip_mm', 'precip_in', 'humidity', 'cloud', 'feelslike_c', 'feelslike_f', 'windchill_c', 'windchill_f', 'heatindex_c', 'heatindex_f', 'dewpoint_c', 'dewpoint_f', 'vis_km', 'vis_miles', 'gust_mph', 'gust_kph', 'uv']
 

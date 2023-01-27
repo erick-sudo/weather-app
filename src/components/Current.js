@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { current as defaultData } from "../data/weatherdata";
+import { forecast as defaultData } from "../data/weatherdata";
 import Time from "./Time"
 import QueryForm from "./QueryForm";
 

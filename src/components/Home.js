@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from "react";
 
-import rocket from "../assets/rocket-loop.gif"
 import Blogs from "../components/blogs/Blogs"
+import FavoriteLocation from "./FavoriteLocation";
 
-function Home({pos}) {
-
-    const {lat, lon} = pos
+function Home({pos, curr}) {
     const [blogs, setBlogs] = useState([]);
 
   function showBlogForm() {
@@ -98,11 +96,8 @@ function Home({pos}) {
 
     return (
     <div className="center home">
-        {/* <div className="background-gif">
-            <img src={rocket} alt="rocket-gif"/>
-        </div> */}
-        <div className="current-location-stats"></div>
-        <div className="current-location">
+        <div className="current-location-stats">
+          <FavoriteLocation curr={curr} pos={pos} />
         </div>
         <div className="content">
             <div className="left">
