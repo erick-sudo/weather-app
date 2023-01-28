@@ -52,8 +52,6 @@ function Blogs({blogs, deleteBlog, setBlogs, postComment, addLike, showBlogForm}
         })
 
         showBlogForm()
-
-        //fetch(`https://localhost:8001/blogs/${id}`)
     }
 
     return (

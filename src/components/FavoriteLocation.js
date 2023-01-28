@@ -14,7 +14,7 @@ function FavoriteLocation({curr, pos}) {
         .then(data => {
             setForecast(data)
         })
-    }, [forecast])
+    }, [pos])
 
     return (
         <div className="favorite">

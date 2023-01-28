@@ -25,7 +25,6 @@ function App() {
 
   const [theme, setTheme] = useState("dark");
   const [currentLocation, setCurrentLocation] = useState({lat: -1, lon: 37});
-  const [pageFound, setPageFound] = useState(true)
 
   const [loggedIn, setLoggedIn] = useState(false)
 

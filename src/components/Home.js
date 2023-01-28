@@ -13,10 +13,6 @@ function Home({pos, curr}) {
     postform.style.display = "block"
   }
 
-  function updateBlog(id, update) {
-
-  }
-
   function deleteBlog(id) {
     fetch(`http://localhost:8001/blogs/${id}`,{
       method: "DELETE"
