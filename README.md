@@ -11,6 +11,18 @@ All comemnts have an option for likes.
 
 The Statisctics page shows the whole day's weather forecast and visually graphs each aspect within the 24hours.
 
+****
+To get the app loading blogs information, fire up the json server on port 8001.
+
+T0 fetch blogs from the json-server:
+```
+    useEffect(() => {
+    fetch('http://localhost:8001/blogs')
+    .then(response => response.json())
+    .then(data => setBlogs(data.reverse()))
+    }, [])
+```
+
 ## Technologies Used
 1. HTML
 2. Jquery
