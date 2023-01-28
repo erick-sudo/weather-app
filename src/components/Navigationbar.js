@@ -16,13 +16,9 @@ const linkStyles = {
     borderRadius: "5px",
   };
 
-function Navigationbar({theme,loggedIn, toggleTheme}) {
+function Navigationbar({theme,loggedIn, toggleTheme, setLoggedIn}) {
 
-    const [credentials, setCredentials] = useState("")
-
-    function logUser() {
-        setCredentials(credentials ? null : "Erick")
-    }
+    document.body.style.backgroundColor = theme === "dark" ? "rgb(3, 14, 14)" : "rgb(189, 236, 238)"
 
     return (
         <div className={`navigation-bar`}>
@@ -31,13 +27,13 @@ function Navigationbar({theme,loggedIn, toggleTheme}) {
             }} className="theme-btn">{theme === "light" ? "🌒" : "🌞"}</button>
             <div className="nav-links">
                 {loggedIn ? <>
-                    <NavLink to="/" style={linkStyles} >Home</NavLink>
+                    <NavLink to="/home" style={linkStyles} >Home</NavLink>
                     <NavLink to="/current" style={linkStyles}>Current</NavLink>
                     <NavLink to="/statistics" style={linkStyles}>Statistics</NavLink>
                     <NavLink to="/about" style={linkStyles}>About</NavLink>
                 </> : null}
             </div>
-            <LoginButton loggedIn={loggedIn} credentials={credentials} logUser={logUser} />
+            <LoginButton loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </div>
     )
 }

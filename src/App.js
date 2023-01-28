@@ -41,14 +41,14 @@ function App() {
 
   return (
     <div className={theme}>
-      <Navigationbar theme={theme} loggedIn={loggedIn} toggleTheme={toggleTheme} />
+      <Navigationbar theme={theme} setLoggedIn={setLoggedIn} loggedIn={loggedIn} toggleTheme={toggleTheme} />
       <Routes>
         <Route path="/" element={<LoginForm setLoggedIn={setLoggedIn} />} />
         <Route path="/home" element={<Home pos={currentLocation} curr={defaultData} />} />
         <Route exact path="/current" element={<Current pos={currentLocation} />} />
         <Route exact path="/statistics" element={<Statistics pos={currentLocation} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route path="/login" element={<LoginForm setLoggedIn={setLoggedIn} />} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

@@ -1,4 +1,22 @@
 {
+  "users": [
+    {
+      "username": "erick",
+      "firstname": "Erick",
+      "lastname": "Obuya",
+      "email": "erickochieng766@gmail.com",
+      "password": "admin",
+      "id": 1
+    },
+    {
+      "username": "cynthia",
+      "firstname": "Cynthia",
+      "lastname": "Awuor",
+      "email": "cynthiaawuor89@gmai.com",
+      "password": "cynthia",
+      "id": 2
+    }
+  ],
   "blogs": [
     {
       "title": "Hurricane",
