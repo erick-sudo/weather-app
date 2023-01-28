@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import { forecast as defaultData } from "./data/weatherdata";
 
 import error from "./assets/error-404.png"
+import { LoginForm, SignupForm } from "./components/Login";
 
 function PageNotFound({pageFound, setPageFound}) {
   return (
@@ -26,6 +27,8 @@ function App() {
   const [currentLocation, setCurrentLocation] = useState({lat: -1, lon: 37});
   const [pageFound, setPageFound] = useState(true)
 
+  const [loggedIn, setLoggedIn] = useState(false)
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setCurrentLocation({lat: position.coords.latitude, lon: position.coords.longitude})
@@ -38,15 +41,18 @@ function App() {
 
   return (
     <div className={theme}>
-      <Navigationbar theme={theme} toggleTheme={toggleTheme} />
+      <Navigationbar theme={theme} loggedIn={loggedIn} toggleTheme={toggleTheme} />
       <Routes>
-        <Route path="/" element={<Home pos={currentLocation} curr={defaultData} />} />
+        <Route path="/" element={<LoginForm setLoggedIn={setLoggedIn} />} />
+        <Route path="/home" element={<Home pos={currentLocation} curr={defaultData} />} />
         <Route exact path="/current" element={<Current pos={currentLocation} />} />
         <Route exact path="/statistics" element={<Statistics pos={currentLocation} />} />
         <Route path="/about" element={<About />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignupForm />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <Footer />
+      {loggedIn ? <Footer /> : null}
     </div>
   );
 }

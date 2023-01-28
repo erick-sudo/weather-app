@@ -486,3 +486,44 @@ h3 {
   -webkit-background-clip: text;
   background-image: linear-gradient(45deg, var(--fg), var(--fgB) , orangered);
 }
+
+/* -----------Login------------- */
+#login {
+  width: 500px;
+  display: flex;
+  margin: 2em auto;
+}
+#login > div > img {
+  width: 100%;
+  display: block;
+}
+#login > * {
+  width: 50%;
+}
+#login > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#login > form > * {
+  margin-top: 1em;
+  
+}
+.createacc {
+  text-decoration: none;
+  font-weight: bolder;
+}
+#login > form > input {
+  border-radius: 5px;
+  border: none;
+  padding: 0.8em;
+  font-size: 1em;
+  outline: none;
+  color: white;
+  background-color: rgba(128, 128, 128, 0.452);
+}
+#login > form > input[type="submit"] {
+  padding: 1em 2em;
+  background-color: green;
+}
