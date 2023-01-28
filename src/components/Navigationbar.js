@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
-import { LoginButton } from "./Login";
-
+import { LoginButton } from "./Login"
 
 
 const linkStyles = {

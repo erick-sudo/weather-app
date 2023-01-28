@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/lock.png"
+import { FaChalkboard } from 'react-icons/fa';
+import { MdAccountCircle } from "react-icons/md";
 
 function LoginButton({loggedIn, setLoggedIn}) {
     const navigate = useNavigate();
@@ -51,6 +53,7 @@ function LoginForm({setLoggedIn}) {
     return (
         <>
         <div id="login">
+            <MdAccountCircle />
             <div><img src={logo} alt="logo" /></div>
             <form onSubmit={handleLogin}>
                 <input name="username" type="text" placeholder="username" required/>
