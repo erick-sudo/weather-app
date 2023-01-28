@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/lock.png"
-import { FaChalkboard } from 'react-icons/fa';
+import loginlogo from "../assets/cartoons/Fingerprint-bro.svg"
+import signuplogo from "../assets/cartoons/Fingerprint-pana.svg"
 import { MdAccountCircle } from "react-icons/md";
 
 function LoginButton({loggedIn, setLoggedIn}) {
@@ -52,9 +52,9 @@ function LoginForm({setLoggedIn}) {
 
     return (
         <>
+        <MdAccountCircle />
         <div id="login">
-            <MdAccountCircle />
-            <div><img src={logo} alt="logo" /></div>
+            <div><img src={loginlogo} alt="logo" /></div>
             <form onSubmit={handleLogin}>
                 <input name="username" type="text" placeholder="username" required/>
                 <input name="password" type="password" placeholder="password" required />
@@ -100,8 +100,8 @@ function SignupForm() {
 
     return (
         <>
-        <div id="login">
-            <div><img src={logo} alt="logo" /></div>
+        <div id="login" >
+            <div> <img src={signuplogo} alt="logo" /></div>
             <form method="POST" onSubmit={handleSignup}>
                 <input name="username" type="text" placeholder="Choose a user name" required/>
                 <input name="firstname" type="text" placeholder="First Name" required/>
