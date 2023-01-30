@@ -6,7 +6,7 @@
       "lastname": "Obuya",
       "email": "erickochieng766@gmail.com",
       "password": "admin",
-      "isAdmin":true,
+      "isAdmin": true,
       "id": 1
     },
     {
@@ -16,6 +16,14 @@
       "email": "cynthiaawuor89@gmai.com",
       "password": "cynthia",
       "id": 2
+    },
+    {
+      "username": "andrew",
+      "firstname": "Andrew",
+      "lastname": "Kyalo",
+      "email": "andrew@gmail.com",
+      "password": "1234",
+      "id": 3
     }
   ],
   "blogs": [
@@ -67,7 +75,7 @@
       "likes": 29
     },
     {
-      "title": "Famine",
+      "title": "Drought",
       "author": "GRID GRID",
       "url": "http://",
       "date": "Mon Jan 30 2023 09:02:04 GMT+0300 (East Africa Time)",
