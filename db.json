@@ -6,6 +6,7 @@
       "lastname": "Obuya",
       "email": "erickochieng766@gmail.com",
       "password": "admin",
+      "isAdmin":true,
       "id": 1
     },
     {
@@ -19,37 +20,77 @@
   ],
   "blogs": [
     {
-      "title": "~ Famine ~",
-      "author": "Nancy Ndemo",
+      "title": "Tri-State Tornado of 1925",
+      "author": "Sherley Powers",
       "url": "http://",
-      "date": "Mon Jan 30 2023 06:36:34 GMT+0300 (East Africa Time)",
-      "description": "A dark greenish tinge covers the sky, and black storm clouds threaten above. The wind roars loudly while cats hide under couches and dogs start howling. A tornado is forming.",
+      "date": "Mon Jan 30 2023 08:45:37 GMT+0300 (East Africa Time)",
+      "description": "Also known as twisters, tornadoes are violently spinning, funnel-shaped columns of air that stretch from the dark thunderclouds they form in all the way to the ground. The wind from a tornado can top 250 miles an hour—that’s faster than a race car! These extreme gusts can rip apart buildings, destroy bridges, flip trains, and send cars flying. They can even tear the bark off trees and suck all the water from a riverbed.",
       "image": "https://cdn.pixabay.com/photo/2016/02/11/07/37/tornado-1193184__340.jpg",
       "comments": [
         {
+          "name": "manag...",
+          "email": "management@redcross.com",
+          "body": "<h5>During a tornado</h5>\n\n<li>Stay inside—never attempt to watch or chase a tornado.</li>\n<li>Do not go near windows. It’s not the tornado itself that causes most injuries; it’s the flying debris—or the windows they crash through—that cause most injuries.</li>",
+          "likes": 0,
+          "id": 5
+        },
+        {
+          "name": "kid.n...",
+          "email": "kid.nationalgeographic@outlook.com",
+          "body": "During thunderstorms, meteorologists use weather satellites, weather balloons, and buoys to gather data like wind speed and temperature. Then they analyze that data with supercomputers. This helps scientists pinpoint where and when a twister might form, as well as how strong or long-lasting it might be.",
+          "likes": 10,
+          "id": 4
+        },
+        {
           "name": "steph...",
           "email": "stephenesila@gmail.com",
-          "body": "A dark greenish tinge covers the sky, and black storm clouds threaten above. The wind roars loudly while cats hide under couches and dogs start howling. A tornado is forming.",
-          "likes": 0,
+          "body": "The Tri-State Tornado of 1925 holds the record for time and distance of a tornado. Named for the three states it hit—Missouri, Illinois, and Indiana—the tornado took three and a half hours to tear through 219 miles.",
+          "likes": 7,
           "id": 3
         },
         {
-          "name": "penin...",
-          "email": "peninapesh@gmail.com",
-          "body": "The Tri-State Tornado of 1925 holds the record for time and distance of a tornado. Named for the three states it hit—Missouri, Illinois, and Indiana—the tornado took three and a half hours to tear through 219 miles.",
-          "likes": 3,
+          "name": "csa_2...",
+          "email": "csa_20@techexpertacademy.com",
+          "body": "For all their power, the average tornado lasts only about 10 minutes, though some can rage for over an hour. Twisters usually die when they move over colder ground or when the clouds above it start to break up.",
+          "likes": 2,
           "id": 2
         },
         {
-          "name": "...",
-          "email": "",
-          "body": "The Tri-State Tornado of 1925 holds the record for time and distance of a tornado. Named for the three states it hit—Missouri, Illinois, and Indiana—the tornado took three and a half hours to tear through 219 miles.",
-          "likes": 7,
+          "name": "kyalo...",
+          "email": "kyalonzioki@gmail.com",
+          "body": "The most violent tornadoes come from supercells—the name scientists give to large thunderstorms with winds already in rotation. About one in a thousand thunderstorms becomes a supercell, and one in five or six supercells creates a tornado.",
+          "likes": 5,
           "id": 1
         }
       ],
-      "id": 3,
-      "likes": 21
+      "id": 1,
+      "likes": 29
+    },
+    {
+      "title": "Famine",
+      "author": "GRID GRID",
+      "url": "http://",
+      "date": "Mon Jan 30 2023 09:02:04 GMT+0300 (East Africa Time)",
+      "description": "The devastating upshot of all this: More than 8 million people, or around half of Somalia’s population, face the prospect of severe food shortages by the middle of this year. According to the United Nations, the current drought has “surpassed” recent crises “in duration and severity” — including the drought in 2011 that led to a declaration of famine",
+      "image": "https://cdn.pixabay.com/photo/2015/08/13/20/06/flower-887443__340.jpg",
+      "comments": [
+        {
+          "name": "UN@gl...",
+          "email": "UN@globe.com",
+          "body": "The example is instructive: Much like today, the crisis in Somalia in 2011 was already extremely serious and had been unfolding for some time before the declaration. Officially labeling it a famine added to the attention — and to the pressure on the world to do something about it.",
+          "likes": 0,
+          "id": 2
+        },
+        {
+          "name": "danie...",
+          "email": "danielmaxwell@gmail.com",
+          "body": "IPC is about classification, so there have always been these thresholds” to guide its assessments.",
+          "likes": 12,
+          "id": 1
+        }
+      ],
+      "id": 2,
+      "likes": 11
     }
   ]
 }

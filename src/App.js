@@ -13,7 +13,7 @@ import error from "./assets/error-404.png"
 import { LoginForm, SignupForm } from "./components/Login";
 import { UpdateBlog, ViewPost } from "./components/blogs/Blogs";
 
-function PageNotFound({pageFound, setPageFound}) {
+function PageNotFound() {
   return (
     <div className="error">
       <img src={error} alt="error" />
@@ -50,8 +50,6 @@ function App() {
   }
 
   function postComment(blogId, comment) {
-
-    alert("Posting Comment"+comment)
     //
     const newBlog = blogs.find(blog => blog.id === blogId)
     if(newBlog) {

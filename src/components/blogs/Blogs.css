@@ -37,6 +37,11 @@
     width: 450px;
   }
 
+  .post-preview  {
+    width: 95%;
+    margin: 0 auto;
+  }
+
   .post-preview > .posts {
     border: none;
     width: 100%;
@@ -66,7 +71,7 @@
   }
   .post-preview .flex-comments  > .comment {
     min-width: 25%;
-    max-width: 25%;
+    max-width: 40%;
   }
 
 

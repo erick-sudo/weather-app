@@ -534,3 +534,32 @@ h3 {
   color: red;
   font-weight: bolder;
 }
+
+/* Placess */
+.select-location {
+  border: solid 2px rgba(14, 174, 238, 0.226);
+  max-height: 500px;
+  width: 200px;
+  margin: 1em;
+  overflow-y: scroll;
+  position: absolute;
+}
+.select-location::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+.select-location::-webkit-scrollbar-thumb {
+  background-color: var(--hover);
+  border-radius: 10px;
+}
+.places {
+  padding: 5px;
+  text-align: center;
+  transition: 0.3s;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.places:hover {
+  background-color: var(--linkGrey);
+  color: var(--hover);
+}

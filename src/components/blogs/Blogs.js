@@ -220,7 +220,7 @@ function Post({blogpost: {id, author, date, image, description, comments, title}
             }}>
             <div className="flex-image-and-headings">
                 {collapse ? null : <div className="top-headings">
-                <h1 className="post-heading">{title}</h1>
+                <h1 className="post-heading">~ {title} ~</h1>
                 <span className="time">{date}</span>
                 <h4 className="author">#{author}</h4>
                 </div>}
