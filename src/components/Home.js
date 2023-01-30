@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 
-import Blogs from "../components/blogs/Blogs"
+import{ Blogs } from "../components/blogs/Blogs"
 import FavoriteLocation from "./FavoriteLocation";
 
-function Home({pos, curr}) {
-    const [blogs, setBlogs] = useState([]);
+function Home({pos, blogs, curr, addLike, deleteBlog, setBlogs, postComment}) {
 
   function showBlogForm() {
     const postform = document.querySelector(".post-form")
@@ -12,95 +11,6 @@ function Home({pos, curr}) {
     postform.classList.remove("zoom-in")
     postform.style.display = "block"
   }
-
-  function deleteBlog(id) {
-    fetch(`http://localhost:8001/blogs/${id}`,{
-      method: "DELETE"
-    })
-
-    setBlogs(blogs.filter(blog => blog.id !== id))
-  }
-
-  function addLike(blogId, commentId) {
-    //
-    const newBlog = blogs.find(blog => blog.id === blogId)
-    if(newBlog) {
-      newBlog.likes += 1
-
-      let prevComments = newBlog.comments
-
-      const newComment = prevComments.find(comment => comment.id === commentId)
-      if(newComment) {
-        newComment.likes += 1
-
-        prevComments = prevComments.map(comment => {
-          if(comment.id === commentId) {
-            return newComment
-          } else {
-            return comment
-          }
-        })
-
-        newBlog.comments = prevComments;
-
-        fetch(`http://localhost:8001/blogs/${blogId}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-          },
-          body: JSON.stringify(newBlog),
-        })
-        .then(response => response.json())
-        .then(data => {
-
-          setBlogs([...blogs].map(blog => {
-            if(blog.id === data.id) {
-              return data
-            } else {
-              return blog
-            }
-          }))
-        })
-      }
-    }
-  }
-
-  function postComment(blogId, comment) {
-    //
-    const newBlog = blogs.find(blog => blog.id === blogId)
-    if(newBlog) {
-      comment.id = newBlog.comments.length+1
-      newBlog.comments.unshift(comment)
-      
-      fetch(`http://localhost:8001/blogs/${blogId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newBlog),
-    })
-    .then(response => response.json())
-    .then(data => {
-
-      setBlogs([...blogs].map(blog => {
-        if(blog.id === data.id) {
-          return data
-        } else {
-          return blog
-        }
-      }))
-    })
-
-    }
-  }
-
-  useEffect(() => {
-    fetch('http://localhost:8001/blogs')
-    .then(response => response.json())
-    .then(data => setBlogs(data.reverse()))
-    }, [])
-
 
     return (
     <div className="center home">

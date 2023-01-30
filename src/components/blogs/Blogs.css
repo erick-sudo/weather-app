@@ -36,7 +36,40 @@
   .posts {
     width: 450px;
   }
- 
+
+  .post-preview > .posts {
+    border: none;
+    width: 100%;
+    margin-top: 2em;
+  }
+  .post-preview  .flex-image-and-headings {
+    display: flex;
+    align-items: center;
+  }
+  .post-preview .post-content {
+    display: flex;
+    align-items: center;
+  }
+  .post-preview .post-content > * {
+    width: 50%;
+  }
+  .post-preview  .top-headings {
+    min-width: 25%;
+    max-width: 30%;
+    transform: scale(0.8);
+  }
+  .post-preview  .flex-comments {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-around;
+  }
+  .post-preview .flex-comments  > .comment {
+    min-width: 25%;
+    max-width: 25%;
+  }
+
+
   .post-form{
     width: 400px;
     margin-left: 1em;
@@ -341,6 +374,11 @@ input, textarea{
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   font-weight: bolder;
+  cursor: pointer;
+  transition: 1s;
+}
+.blog:hover {
+  background-color: #e03d58;
 }
 
 .deleteblog {
@@ -362,4 +400,86 @@ input, textarea{
 .updateblog , .deleteblog {
   padding: 5px 10px;
   border-radius: 10px;
+  transition: 0.5s;
+}
+.updateblog:hover , .deleteblog:hover {
+  background-color: #e03d58;
+  transform: scale(1.4);
+}
+
+/* Update Blog Component */
+.update-form{
+  margin-bottom: 20px;
+}
+.update-blog-form {
+  display: flex;
+  align-items: center;
+  padding: 1.3em;
+}
+.Blog-Details {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5em;
+}
+.field > input {
+  width: 75%;
+  outline: none;
+  padding: 0.5em;
+  font-weight: bolder;
+  font-size: 1.5em;
+  border-radius: 5px;
+  color: black;
+}
+.field > input[type="url"] {
+  color: teal;
+}
+.field > label {
+  font-weight: bolder;
+}
+.field > p{
+  font-weight: bolder;
+  font-size: 1.3em;
+}
+.blog-description {
+  width: 50%;
+  position: relative;
+}
+.blog-description > img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+.update-form > textarea {
+  width: 75%;
+  margin: 0 auto;
+  display: block;
+  font-size: 1.3em;
+  font-weight: bolder;
+  min-height: 150px;
+  border: solid 1px var(--fg);
+  color: teal;
+}
+.update-blog-btn {
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  font-weight: bolder;
+  font-size: 1.5em;
+  padding: 0.5em;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--fg);
+  font-family: fantasy;
+  cursor: pointer;
+  transition: 1s;
+}
+.update-blog-btn:hover {
+  background-color: var(--linkblogs);
+  transform: scale(1.2);
 }

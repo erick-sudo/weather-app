@@ -19,82 +19,37 @@
   ],
   "blogs": [
     {
-      "title": "Hurricane",
-      "author": "Sherley Powers",
+      "title": "~ Famine ~",
+      "author": "Nancy Ndemo",
       "url": "http://",
-      "date": "Fri Jan 27 2023 10:43:02 GMT+0300 (East Africa Time)",
-      "description": "There are no tropical cyclones in the Eastern North Pacific at this time.\nThe Eastern North Pacific hurricane season runs from May 15th through November 30th.",
-      "image": "https://cdn.pixabay.com/photo/2017/02/27/08/50/cyclone-2102397__340.jpg",
+      "date": "Mon Jan 30 2023 06:36:34 GMT+0300 (East Africa Time)",
+      "description": "A dark greenish tinge covers the sky, and black storm clouds threaten above. The wind roars loudly while cats hide under couches and dogs start howling. A tornado is forming.",
+      "image": "https://cdn.pixabay.com/photo/2016/02/11/07/37/tornado-1193184__340.jpg",
       "comments": [
         {
-          "name": "...",
-          "email": "",
-          "body": "Okay",
-          "likes": 4,
-          "id": 1
-        }
-      ],
-      "id": 1
-    },
-    {
-      "title": "Drought",
-      "author": "Courtney John",
-      "url": "http://",
-      "date": "Fri Jan 27 2023 10:46:58 GMT+0300 (East Africa Time)",
-      "description": "Recognizing drought risks in a timely manner is dependent on our ability to monitor and forecast the diverse physical indicators of climatological drought, as well as relevant economic, social, and environmental impacts. A DEWS provides accurate, timely, and integrated information on drought conditions at the relevant spatial scale. This can help governments and communities make proactive decisions to minimize the economic, social, and ecosystem losses associated with drought.",
-      "image": "https://cdn.pixabay.com/photo/2016/09/17/08/24/drought-1675729__340.jpg",
-      "comments": [
-        {
-          "name": "...",
-          "email": "",
-          "body": "Perfect\n",
-          "likes": 6,
-          "id": 1
-        }
-      ],
-      "id": 2
-    },
-    {
-      "title": "rtyui",
-      "author": "Courtney John",
-      "url": "http://",
-      "date": "Fri Jan 27 2023 10:48:27 GMT+0300 (East Africa Time)",
-      "description": "Recognizing drought risks in a timely manner is dependent on our ability to monitor and forecast the diverse physical indicators of climatological drought, as well as relevant economic, social, and environmental impacts. A DEWS provides accurate, timely, and integrated information on drought conditions at the relevant spatial scale. This can help governments and communities make proactive decisions to minimize the economic, social, and ecosystem losses associated with drought.",
-      "image": "https://cdn.pixabay.com/photo/2016/09/17/08/24/drought-1675729__340.jpg",
-      "comments": [],
-      "id": 3
-    },
-    {
-      "title": "Heavy Rain",
-      "author": "erick ochieng",
-      "url": "http://",
-      "date": "Fri Jan 27 2023 11:06:40 GMT+0300 (East Africa Time)",
-      "description": "Expected heavy rains in July",
-      "image": "https://cdn.pixabay.com/photo/2017/02/27/08/50/cyclone-2102397__340.jpg",
-      "comments": [
-        {
-          "name": "...",
-          "email": "",
-          "body": "Button",
-          "likes": 7,
+          "name": "steph...",
+          "email": "stephenesila@gmail.com",
+          "body": "A dark greenish tinge covers the sky, and black storm clouds threaten above. The wind roars loudly while cats hide under couches and dogs start howling. A tornado is forming.",
+          "likes": 0,
           "id": 3
         },
         {
-          "name": "...",
-          "email": "",
-          "body": "sdfghjk",
-          "likes": 6,
+          "name": "penin...",
+          "email": "peninapesh@gmail.com",
+          "body": "The Tri-State Tornado of 1925 holds the record for time and distance of a tornado. Named for the three states it hit—Missouri, Illinois, and Indiana—the tornado took three and a half hours to tear through 219 miles.",
+          "likes": 3,
           "id": 2
         },
         {
           "name": "...",
           "email": "",
-          "body": "Perfect",
-          "likes": 17,
+          "body": "The Tri-State Tornado of 1925 holds the record for time and distance of a tornado. Named for the three states it hit—Missouri, Illinois, and Indiana—the tornado took three and a half hours to tear through 219 miles.",
+          "likes": 7,
           "id": 1
         }
       ],
-      "id": 4
+      "id": 3,
+      "likes": 21
     }
   ]
 }
