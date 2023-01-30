@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import loginlogo from "../assets/cartoons/Fingerprint-bro.svg"
 import signuplogo from "../assets/cartoons/Fingerprint-pana.svg"
-import { MdAccountCircle } from "react-icons/md";
+import { MdAdminPanelSettings } from "react-icons/md";
+import adminlogo from "../assets/cartoons/Server-amico.svg"
 
 function LoginButton({loggedIn, setLoggedIn}) {
     const navigate = useNavigate();
@@ -52,9 +53,62 @@ function LoginForm({setLoggedIn}) {
 
     return (
         <>
-        <MdAccountCircle />
         <div id="login">
             <div><img src={loginlogo} alt="logo" /></div>
+            <form onSubmit={handleLogin}>
+                <input name="username" type="text" placeholder="username" required/>
+                <input name="password" type="password" placeholder="password" required />
+                {wrongDetails ? <p className="error-messages">wrong username or password</p> : null}
+                <input type="submit" value="Login" />
+                <a onClick={(e) => {
+                    e.preventDefault()
+                    navigate("/signup")
+                }} className="createacc" href="/signup">Create Account</a>
+            </form>
+            <div onClick={() => {
+                navigate("/admin")
+            }} className="admin-btn"><MdAdminPanelSettings /></div>
+        </div>
+        </>
+    )
+}
+
+function Admin({setLoggedIn, escalatePrivileges}) {
+    const navigate = useNavigate()
+
+    const [wrongDetails, setWrongDetails] = useState(false)
+
+    function handleLogin(event) {
+        event.preventDefault()
+
+        const formData = {
+            username: event.target.username.value,
+            password: event.target.password.value
+        }
+
+        fetch(`http://localhost:8001/users?username=${formData.username}`)
+        .then(res => res.json())
+        .then(user => {
+            if(user.length === 1) {
+                if(user[0].password === formData.password) {
+                    if(user[0].isAdmin === true) {
+                        escalatePrivileges(true)
+                    }
+                    setLoggedIn(true)
+                    navigate("/home")
+                } else {
+                    setWrongDetails(true)
+                }
+            } else {
+                setWrongDetails(true)
+            }
+        })
+    }
+
+    return (
+        <>
+        <div id="login">
+            <div><img src={adminlogo} alt="logo" /></div>
             <form onSubmit={handleLogin}>
                 <input name="username" type="text" placeholder="username" required/>
                 <input name="password" type="password" placeholder="password" required />
@@ -69,6 +123,7 @@ function LoginForm({setLoggedIn}) {
         </>
     )
 }
+
 function SignupForm() {
     const navigate = useNavigate()
 
@@ -119,4 +174,4 @@ function SignupForm() {
     )
 }
 
-export { LoginButton, LoginForm, SignupForm };
+export { LoginButton, LoginForm, SignupForm, Admin };

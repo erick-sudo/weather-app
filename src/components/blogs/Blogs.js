@@ -11,7 +11,7 @@ import goddess from "../../assets/profilepics/goddess.jpg"
 import skeleton from "../../assets/profilepics/skeleton.svg"
 import teacher from "../../assets/profilepics/teacher.svg"
 
-function Blogs({blogs, deleteBlog, setBlogs, postComment, addLike}) {
+function Blogs({blogs, deleteBlog, setBlogs, postComment, addLike, asAdmin}) {
 
     function updateBlogs(blog) {
         setBlogs(blog)
@@ -25,7 +25,7 @@ function Blogs({blogs, deleteBlog, setBlogs, postComment, addLike}) {
             <div className="blogs">
                 {
                     blogs.map(blog => {
-                      return <Post key={blog.id} owner="Blogs" deleteBlog={deleteBlog} postComment={postComment} addLike={addLike} blogpost={blog}/>  
+                      return <Post key={blog.id} owner="Blogs" asAdmin={asAdmin} deleteBlog={deleteBlog} postComment={postComment} addLike={addLike} blogpost={blog}/>  
                     })
                 }
             </div>
@@ -88,7 +88,7 @@ function PostForm({send, updateBlogs}) {
     );
 }
 
-function ViewPost({addLike, deleteBlog, postComment}) {
+function ViewPost({addLike, deleteBlog, postComment, asAdmin}) {
 
     const navigate = useNavigate()
 
@@ -127,7 +127,7 @@ function ViewPost({addLike, deleteBlog, postComment}) {
 
     return (
         <div className="post-preview">
-            {post ? <Post addLike={addLike} deleteBlog={deleteBlog} postComment={postComment} blogpost={post} updateLikes={updateLikes} addFrontComment={addFrontComment}/> : null}
+            {post ? <Post addLike={addLike} asAdmin={asAdmin} deleteBlog={deleteBlog} postComment={postComment} blogpost={post} updateLikes={updateLikes} addFrontComment={addFrontComment}/> : null}
         </div>
     )
 }
@@ -204,7 +204,7 @@ function UpdateBlog() {
     )
 }
 
-function Post({blogpost: {id, author, date, image, description, comments, title}, postComment, addLike, deleteBlog, owner, updateLikes, addFrontComment}) {
+function Post({blogpost: {id, author, date, image, description, comments, title}, postComment, addLike, deleteBlog, owner, updateLikes, addFrontComment, asAdmin}) {
 
     const [collapse, setcollapse] = useState(true);
 
@@ -225,7 +225,7 @@ function Post({blogpost: {id, author, date, image, description, comments, title}
                 <h4 className="author">#{author}</h4>
                 </div>}
                 <div className="post-content">
-                    <Pic url={image} blogid={id} deleteBlog={deleteBlog} />
+                    <Pic url={image} blogid={id} asAdmin={asAdmin} deleteBlog={deleteBlog} />
                     <p className="about-post">{description}</p>
                 </div>
             </div>
@@ -250,22 +250,24 @@ function Post({blogpost: {id, author, date, image, description, comments, title}
     );
 }
 
-function Pic({url, blogid, deleteBlog}) {
+function Pic({url, blogid, deleteBlog, asAdmin}) {
     const navigate = useNavigate()
     return (
         <div className="pics">
-            <button className="deleteblog" onClick={(e) => {
+            {asAdmin ? 
+                <button className="deleteblog" onClick={(e) => {
                 e.preventDefault()
                 e.stopPropagation()
                 deleteBlog(blogid);
                 navigate(`/home`);
-            }}>Delete</button>
+            }}>Delete</button> : null}
             <img className="pictures" src={url} alt="post-pic" />
+            {asAdmin ? 
             <button className="updateblog" onClick={(e) => {
                 e.preventDefault()
                 e.stopPropagation()
                 navigate(`/updateblog/${blogid}`);
-            }}>Update</button>
+            }}>Update</button> : null}
         </div>
     );
 }

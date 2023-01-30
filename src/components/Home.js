@@ -3,7 +3,7 @@ import React from "react";
 import{ Blogs } from "../components/blogs/Blogs"
 import FavoriteLocation from "./FavoriteLocation";
 
-function Home({pos, blogs, curr, addLike, deleteBlog, setBlogs, postComment}) {
+function Home({pos, blogs, curr, addLike, deleteBlog, setBlogs, postComment, asAdmin}) {
 
   function showBlogForm() {
     const postform = document.querySelector(".post-form")
@@ -11,7 +11,6 @@ function Home({pos, blogs, curr, addLike, deleteBlog, setBlogs, postComment}) {
     postform.classList.remove("zoom-in")
     postform.style.display = "block"
   }
-
     return (
     <div className="center home">
         <div className="current-location-stats">
@@ -24,8 +23,8 @@ function Home({pos, blogs, curr, addLike, deleteBlog, setBlogs, postComment}) {
                 <h3 className="welcome-text">Climate is what we expect, weather is what we get.</h3>
             </div>
             <div className="weather-updates">
-                <div className="blog" onClick={showBlogForm}>POST 📯</div>
-                <Blogs blogs={blogs} showBlogForm={showBlogForm} deleteBlog={deleteBlog} setBlogs={setBlogs} postComment={postComment} addLike={addLike}/>
+                {asAdmin ? <div className="blog" onClick={showBlogForm}>POST 📯</div> : null}
+                <Blogs asAdmin={asAdmin} blogs={blogs} showBlogForm={showBlogForm} deleteBlog={deleteBlog} setBlogs={setBlogs} postComment={postComment} addLike={addLike}/>
             </div>
         </div>
     </div>

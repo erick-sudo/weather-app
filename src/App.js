@@ -8,9 +8,10 @@ import About from "./components/About"
 import Navigationbar from "./components/Navigationbar"
 import Footer from "./components/Footer";
 import { forecast as defaultData } from "./data/weatherdata";
+import { MdAdminPanelSettings } from "react-icons/md";
 
 import error from "./assets/error-404.png"
-import { LoginForm, SignupForm } from "./components/Login";
+import { LoginForm, SignupForm, Admin } from "./components/Login";
 import { UpdateBlog, ViewPost } from "./components/blogs/Blogs";
 
 function PageNotFound() {
@@ -22,6 +23,16 @@ function PageNotFound() {
   )
 }
 
+function AccessDenied() {
+  return (
+    <div className="error">
+    <div className="shield"><MdAdminPanelSettings /></div>
+      {/* <img src="https://cdn.pixabay.com/photo/2013/04/01/09/21/disconnected-98521_960_720.png" alt="error" /> */}
+      <h1>Access Denied</h1>
+    </div>
+  )
+}
+
 function App() {
 
   const [theme, setTheme] = useState("dark");
@@ -29,7 +40,13 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
 
+  const [asAdmin, setAsAdmin] = useState(false)
+
   const [blogs, setBlogs] = useState([]);
+
+  function escalatePrivileges(flag) {
+    setAsAdmin(flag)
+  }
 
   function updateBlogs(blog) {
     setBlogs([blog, ...blogs]);
@@ -138,13 +155,14 @@ function App() {
       <Navigationbar theme={theme} setLoggedIn={setLoggedIn} loggedIn={loggedIn} toggleTheme={toggleTheme} />
       <Routes>
         <Route index element={<Navigate replace to="/login" />} />
-        <Route path="home" element={<Home blogs={blogs} addLike={addLike} deleteBlog={deleteBlog} postComment={postComment} pos={currentLocation} curr={defaultData} setBlogs={updateBlogs} />}/>
+        <Route path="home" element={<Home asAdmin={asAdmin} blogs={blogs} addLike={addLike} deleteBlog={deleteBlog} postComment={postComment} pos={currentLocation} curr={defaultData} setBlogs={updateBlogs} />}/>
         <Route exact path="current" element={<Current pos={currentLocation} />} />
-        <Route exact path="updateblog/:blogId" element={ <UpdateBlog />} />
-        <Route exact path="viewpost/:blogId" element={ <ViewPost addLike={addLike} deleteBlog={deleteBlog} postComment={postComment} />} />
+        <Route exact path="updateblog/:blogId" element={ asAdmin ? <UpdateBlog /> : <AccessDenied />} />
+        <Route exact path="viewpost/:blogId" element={ <ViewPost asAdmin={asAdmin} addLike={addLike} deleteBlog={deleteBlog} postComment={postComment} />} />
         <Route exact path="statistics" element={<Statistics pos={currentLocation} />} />
         <Route path="about" element={<About />} />
         <Route path="login" element={<LoginForm setLoggedIn={setLoggedIn} />} />
+        <Route path="admin" element={<Admin escalatePrivileges={escalatePrivileges} setLoggedIn={setLoggedIn} />} />
         <Route path="signup" element={<SignupForm />} />
         <Route path="error" element={<PageNotFound />} />
         <Route path="*" element={<Navigate replace to="error" />} />

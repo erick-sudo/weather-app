@@ -563,3 +563,17 @@ h3 {
   background-color: var(--linkGrey);
   color: var(--hover);
 }
+.admin-btn{
+  position: absolute;
+  width: 100px !important;
+  color: orangered;
+  font-size: 5em;
+  transition: 1s;
+}
+.admin-btn:hover {
+  color: var(--fg);
+  transform: scale(1.4);
+}
+.shield {
+  font-size: 7em;
+}
